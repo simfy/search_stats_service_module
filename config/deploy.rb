@@ -89,7 +89,7 @@ namespace :deploy do
   namespace :nginx do
     desc "Update nginx configuration"
     task :update_conf do
-      run "cp #{current_path}/config/nginx-#{stage}.conf /var/simfy/unicorn/nginx-#{stage}-#{application}.conf"
+      run "cp #{current_path}/config/nginx-#{application}.conf /var/simfy/unicorn/nginx-#{stage}-#{application}.conf"
     end
 
     desc "Setup nginx: Copy the app specific nginx configuration to global conf dir and restart nginx"
