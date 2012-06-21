@@ -17,6 +17,8 @@ end
 
 group :test, :development do
   gem 'debugger'
+  gem 'capistrano'
+  gem 'capistrano-ext'
 end
 
 # To use ActiveModel has_secure_password

@@ -8,6 +8,13 @@ Hoth::Modules.define do
         transport :http
       end
     end
+    env :staging do
+      endpoint :default do
+        host 'localhost'
+        port 9002
+        transport :http
+      end
+    end
  
     add_service :log_subscription_cancelled_by_user
   end
