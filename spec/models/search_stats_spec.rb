@@ -17,6 +17,10 @@ describe SearchStats do
       SearchStats.increment_search_term_score(:test, "justin bieber").should == 6.0
       SearchStats.increment_search_term_score(:test, "justin bieber").should == 7.0
     end
+
+    it "should ignore nil requests" do
+      SearchStats.increment_search_term_score(:test, nil).should be_false
+    end
   end
 
   describe "#get_search_term_score" do
