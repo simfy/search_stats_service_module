@@ -25,4 +25,8 @@ class SearchStats
     R.zrevrange(type, 0, limit-1, { withscores: true })
   end
 
+  def self.reset_all
+    R.flushall
+  end
+
 end

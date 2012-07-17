@@ -32,4 +32,11 @@ describe SearchStats do
     end
   end
 
+  describe "#reset_all" do
+    it "should clear all terms and scores" do
+      SearchStats.reset_all.should == "OK"
+      SearchStats.get_top(:test, 3).should == []
+    end
+  end
+
 end
