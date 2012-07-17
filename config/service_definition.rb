@@ -12,4 +12,7 @@ Hoth::Services.define do
   	returns :top_scores
   end
 
+  service :reset_all do
+  	returns :ok
+  end
 end

@@ -19,6 +19,7 @@ Hoth::Modules.define do
     add_service :set_term
     add_service :get_term
     add_service :get_top_terms
+    add_service :reset_all
   end
  
 end

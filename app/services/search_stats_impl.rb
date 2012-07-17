@@ -15,3 +15,9 @@ class GetTopTermsImpl
     SearchStats.get_top_terms(type, limit)
   end
 end
+
+class GetTopTermsImpl
+  def self.execute
+    SearchStats.reset_all()
+  end
+end
