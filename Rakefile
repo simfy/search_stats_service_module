@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ActionLogService::Application.load_tasks
+SearchStatsServiceModule::Application.load_tasks

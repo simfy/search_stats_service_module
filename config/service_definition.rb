@@ -1,7 +1,15 @@
 Hoth::Services.define do
  
-  service :log_subscription_cancelled_by_user do |subscription_id, user_id, comment|
-    returns :nothing
+  service :set_term do |type, term|
+    returns :score
+  end
+
+  service :get_term do |type, term|
+  	returns :score
+  end
+
+  service :get_top_terms do |type, limit|
+  	returns :top_scores
   end
 
 end

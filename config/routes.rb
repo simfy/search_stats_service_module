@@ -1,4 +1,4 @@
-ActionLogService::Application.routes.draw do
+SearchStatsServiceModule::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

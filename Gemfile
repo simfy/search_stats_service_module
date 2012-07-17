@@ -8,8 +8,7 @@ gem 'rails', '3.2.6'
 gem 'rails-api'
 gem 'hoth'
 gem "mysql2"
-gem 'renum'
-gem 'haz_enum'
+gem 'redis'
 
 group :test do
   gem 'rspec-rails'

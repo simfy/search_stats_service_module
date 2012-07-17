@@ -1,6 +1,6 @@
 Hoth::Modules.define do
  
-  service_module :action_log_service do
+  service_module :search_stats_service_module do
     env :development, :test do
       endpoint :default do
         host 'localhost'
@@ -16,7 +16,9 @@ Hoth::Modules.define do
       end
     end
  
-    add_service :log_subscription_cancelled_by_user
+    add_service :set_term
+    add_service :get_term
+    add_service :get_top_terms
   end
  
 end

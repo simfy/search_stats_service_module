@@ -1,0 +1,21 @@
+<%
+  rails_root = Pathname.new(File.expand_path("../", __FILE__))
+  require "active_support/all"
+  require rails_root.join("app/modules/simfy_config")
+%>
+staging:
+  host: 127.0.0.1
+  port: 6377
+
+production: &PRODUCTION
+  host: "s11"
+  port: "6377"
+
+test:
+  path: <%= rails_root.join("tmp/redis/#{["redis_test", ENV["TEST_ENV_NUMBER"]].map(&:presence).compact.join("_")}.socket") %>
+
+development:
+  path: <%= rails_root.join("tmp/redis/redis_development.socket") %>
+
+production_slave:
+  <<: *PRODUCTION
