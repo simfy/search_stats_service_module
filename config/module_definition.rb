@@ -16,10 +16,10 @@ Hoth::Modules.define do
       end
     end
  
-    add_service :set_term
-    add_service :get_term
-    add_service :get_top_terms
-    add_service :reset_all
+    add_service :increment_search_term_score
+    add_service :get_search_term_score
+    add_service :get_top_search_terms
+    add_service :reset_all_search_stats
   end
  
 end

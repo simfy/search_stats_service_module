@@ -11,22 +11,23 @@ class SearchStats
   #   # => 1.0
   #
   # Returns the Redis record.
-  def self.set_term(type, term)
-    R.zincrby(type, 1, term.chomp.downcase)
-  end
+  class <<self
+    def increment_search_term_score(type, term)
+      R.zincrby(type, 1, term.chomp.downcase)
+    end
 
-  # Retrieve the number of hits for a search term for a search type
-  def self.get_term(type, term)
-    R.zscore(type, term.downcase)
-  end
+    # Retrieve the number of hits for a search term for a search type
+    def get_search_term_score(type, term)
+      R.zscore(type, term.downcase)
+    end
 
-  # Retrieve the ranked terms by type
-  def self.get_top(type, limit)
-    R.zrevrange(type, 0, limit-1, { withscores: true })
-  end
+    # Retrieve the ranked terms by type
+    def get_top_search_terms(type, limit)
+      R.zrevrange(type, 0, limit-1, { withscores: true })
+    end
 
-  def self.reset_all
-    R.flushall
+    def reset_all_search_stats
+      R.flushall
+    end
   end
-
 end

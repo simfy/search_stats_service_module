@@ -6,36 +6,36 @@ describe SearchStats do
 
   before(:each) do
     R.flushall
-    5.times { SearchStats.set_term(:test, "justin bieber") }
-    3.times { SearchStats.set_term(:test, "lady gaga") }
-    3.times { SearchStats.set_term(:test, "nas") }
-    3.times { SearchStats.set_term(:test, "cro") }
+    5.times { SearchStats.increment_search_term_score(:test, "justin bieber") }
+    3.times { SearchStats.increment_search_term_score(:test, "lady gaga") }
+    3.times { SearchStats.increment_search_term_score(:test, "nas") }
+    3.times { SearchStats.increment_search_term_score(:test, "cro") }
   end
 
-  describe "#set_term" do
+  describe "#increment_search_term_score" do
     it "should increment a search terms' score" do
-      SearchStats.set_term(:test, "justin bieber").should == 6.0
-      SearchStats.set_term(:test, "justin bieber").should == 7.0
+      SearchStats.increment_search_term_score(:test, "justin bieber").should == 6.0
+      SearchStats.increment_search_term_score(:test, "justin bieber").should == 7.0
     end
   end
 
-  describe "#get_term" do
+  describe "#get_search_term_score" do
     it "should return the current score for a term" do
-      SearchStats.get_term(:test, "Justin Bieber").should == 5.0
+      SearchStats.get_search_term_score(:test, "Justin Bieber").should == 5.0
     end
   end
 
-  describe "#get_top_terms" do
+  describe "#get_top_search_terms" do
     it "should return the top 3 terms of a given set" do
-      SearchStats.get_top(:test, 3).should be_an Array
-      SearchStats.get_top(:test, 3).should == [["justin bieber", 5.0], ["nas", 3.0], ["lady gaga", 3.0]]
+      SearchStats.get_top_search_terms(:test, 3).should be_an Array
+      SearchStats.get_top_search_terms(:test, 3).should == [["justin bieber", 5.0], ["nas", 3.0], ["lady gaga", 3.0]]
     end
   end
 
-  describe "#reset_all" do
+  describe "#reset_all_search_stats" do
     it "should clear all terms and scores" do
-      SearchStats.reset_all.should == "OK"
-      SearchStats.get_top(:test, 3).should == []
+      SearchStats.reset_all_search_stats.should == "OK"
+      SearchStats.get_top_search_terms(:test, 3).should == []
     end
   end
 

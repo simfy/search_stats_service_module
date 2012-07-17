@@ -1,23 +1,23 @@
 class SetTermImpl
   def self.execute
-    SearchStats.get_term(type, term)
+    SearchStats.increment_search_term_score(type, term)
   end
 end
 
 class GetTermImpl
   def self.execute
-    SearchStats.get_term(type, term)
+    SearchStats.get_search_term_score(type, term)
   end
 end
 
 class GetTopTermsImpl
   def self.execute
-    SearchStats.get_top_terms(type, limit)
+    SearchStats.get_top_search_terms(type, limit)
   end
 end
 
 class GetTopTermsImpl
   def self.execute
-    SearchStats.reset_all()
+    SearchStats.reset_all_search_stats()
   end
 end

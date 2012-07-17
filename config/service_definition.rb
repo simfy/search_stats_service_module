@@ -1,18 +1,18 @@
 Hoth::Services.define do
  
-  service :set_term do |type, term|
+  service :increment_search_term_score do |type, term|
     returns :score
   end
 
-  service :get_term do |type, term|
+  service :get_search_term_score do |type, term|
   	returns :score
   end
 
-  service :get_top_terms do |type, limit|
+  service :get_top_search_terms do |type, limit|
   	returns :top_scores
   end
 
-  service :reset_all do
+  service :reset_all_search_stats do
   	returns :ok
   end
 end
