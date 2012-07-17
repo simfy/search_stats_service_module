@@ -1,7 +1,6 @@
 <%
   rails_root = Pathname.new(File.expand_path("../", __FILE__))
   require "active_support/all"
-  require rails_root.join("app/modules/simfy_config")
 %>
 staging:
   host: 127.0.0.1
