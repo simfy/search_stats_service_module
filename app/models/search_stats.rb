@@ -14,7 +14,7 @@ class SearchStats
     #
     # Returns the score for the given search term.
     def increment_search_term_score(type, term)
-        term = "" if term.blank?
+      return false if term.nil?
       R.zincrby(type, 1, term.chomp.downcase)
     end
 
