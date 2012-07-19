@@ -4,7 +4,7 @@ Hoth::Modules.define do
     env :development, :test do
       endpoint :default do
         host 'localhost'
-        port 3001
+        port 3002
         transport :http
       end
     end
