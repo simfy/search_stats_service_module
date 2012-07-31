@@ -1,4 +1,3 @@
-action_log_service
-==================
+# search_stats_service_module
 
-Service to log different actions happening in our backend i.e. user cancelled subscription.
+Service to log search requests into a Redis store.
